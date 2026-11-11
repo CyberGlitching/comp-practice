@@ -1,0 +1,82 @@
+# scorebot services - edit for your lab. One block per scored service.
+# host is an IP or name reachable from where scorebot runs.
+# Spring '26 scored services are pre-filled; change the IPs (X = your team number).
+- name: pfSense ICMP         # Router
+  host: 172.16.21.1
+  check: icmp
+- name: pfSense DNS
+  host: 172.16.21.1
+  check: dns
+  query: dog.local           # a name the resolver should answer
+- name: Gitlab ICMP
+  host: 172.16.21.10
+  check: icmp
+- name: Gitlab SSH
+  host: 172.16.21.10
+  check: ssh
+- name: Gitlab HTTP
+  host: 172.16.21.10
+  check: http
+  path: /users/sign_in
+- name: Comms ICMP
+  host: 172.16.21.11
+  check: icmp
+- name: Comms SSH
+  host: 172.16.21.11
+  check: ssh
+- name: Comms Mattermost
+  host: 172.16.21.11
+  check: http
+  port: 8065
+  path: /api/v4/system/ping
+- name: Web ICMP
+  host: 172.16.21.12
+  check: icmp
+- name: Web SSH
+  host: 172.16.21.12
+  check: ssh
+- name: Web HTTP
+  host: 172.16.21.12
+  check: http
+- name: Web MySQL
+  host: 172.16.21.12
+  check: mysql
+- name: File ICMP
+  host: 172.16.21.13
+  check: icmp
+- name: File SSH
+  host: 172.16.21.13
+  check: ssh
+- name: File FTP
+  host: 172.16.21.13
+  check: ftp
+- name: File ZeroClaw
+  host: 172.16.21.13
+  check: http
+  port: 42617
+  path: /health
+- name: DC1 ICMP
+  host: 172.16.21.5
+  check: icmp
+- name: DC1 LDAP
+  host: 172.16.21.5
+  check: tcp
+  port: 389
+- name: DC1 WinRM
+  host: 172.16.21.5
+  check: tcp
+  port: 5985
+- name: DC1 RDP
+  host: 172.16.21.5
+  check: tcp
+  port: 3389
+- name: DC2 ICMP
+  host: 172.16.21.6
+  check: icmp
+- name: DC2 IIS
+  host: 172.16.21.6
+  check: http
+- name: DC2 RDP
+  host: 172.16.21.6
+  check: tcp
+  port: 3389
